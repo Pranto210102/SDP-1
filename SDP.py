@@ -2,7 +2,6 @@ import streamlit as st
 import uuid
 import base64
 import time
-from cryptography.fernet import Fernet
 
 # Function to display the animated title
 def animated_title(text, colors, delay=0.1):
