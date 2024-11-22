@@ -3,8 +3,9 @@ import uuid
 import base64
 import time
 
+
 # Function to display the animated title
-def animated_title(text, colors, delay=0.1):
+def animated_title(text, colors, delay=0.2):
     placeholder = st.empty()
     styled_text = ""
     
@@ -14,23 +15,6 @@ def animated_title(text, colors, delay=0.1):
         placeholder.markdown(f"<h1 style='text-align:center;'>{styled_text}</h1>", unsafe_allow_html=True)
 
 
-def generate_key():
-    return Fernet.generate_key()
-
-
-def encrypt_message(message, key):
-    fernet = Fernet(key)
-    encrypted_message = fernet.encrypt(message.encode())
-    return encrypted_message
-
-
-def decrypt_message(encrypted_message, key):
-    fernet = Fernet(key)
-    try:
-        decrypted_message = fernet.decrypt(encrypted_message).decode()
-        return decrypted_message
-    except Exception:
-        return "Invalid key or message not found."
 
 # Main function to handle page layout and navigation
 def main():
@@ -69,7 +53,12 @@ def main():
 
 # Homepage slideshow function with reduced image size
 def display_homepage():
-    images = ["sample.jpg", "sampleImg1.jpg", "sampleImg2.jpg"]  # Replace with actual image file paths
+    # st.image("https://cdn.pixabay.com/photo/2022/07/24/11/35/women-7341444_1280.jpg", use_column_width=True)
+
+    images = ["https://cdn.pixabay.com/photo/2022/07/24/11/35/women-7341444_1280.jpg",
+               "https://cdn.pixabay.com/photo/2016/02/05/16/19/offices-1181385_1280.jpg",
+                 "https://cdn.pixabay.com/photo/2024/03/12/07/54/students-8628244_1280.jpg",
+                "https://images.pexels.com/photos/5676744/pexels-photo-5676744.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"]  # Replace with actual image file paths
     placeholder = st.empty()
     
     while True:
